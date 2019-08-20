@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="maintest.css">
+</head>
+
+<label class="container">One
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Two
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Three
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">Four
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<body>
+<div class="outer">
+    <div class="button-close">
+        <!-- This is the close button svg.  Add the dark.svg to this folder and change the image src to 'dark.svg' for a darker (x) -->
+        <a href="appboy://close"><img src="light.svg" width="10px"/></a>
+    </div>
+
+    <div class="top-container">
+        <!-- This is the main image.  Add your image to this folder and change the image src to the image of your choice. -->
+        <div class="main-image"><img src="HP_Emoji_Set01_Winky.png" width="60%"></div>
+    </div>
+
+    <div class="bottom-container">
+        <h2 class="header" style="color:Tomato;"> AHOY, CAPITAN! <br>  Save your preferences here! <br> </h2>
+        
+        <h3 class="header">What is your Departure City?</h3>
+        <p class="message">
+        <form id="departure_list">
+            <input type="checkbox" name="departures[]" value="Berlin"> Berlin
+            <input type="checkbox" name="departures[]" value="Frankfurt"> Frankfurt
+            <input type="checkbox" name="departures[]" value="Munich"> Munich
+        </form>
+         <h3 class="header">3 places you've been dreaming to visit</h3>
+        <p class="message">
+        <form id="trippreference">
+            <input type="checkbox" name="trippreference[]" value="Beach"> Beach
+            <input type="checkbox" name="trippreference[]" value="Skii"> Skii
+            <input type="checkbox" name="trippreference[]" value="CityTrip"> City Trip
+        </form>
+          <h3 class="header">How far you want to go?</h3>
+        <p class="message">
+        <form id="tripdistance">
+            <input type="checkbox" name="tripdistance[]" value="Close"> 2 hours flight!
+            <input type="checkbox" name="tripdistance[]" value="Medium"> 4 hours away! <br>
+            <input type="checkbox" name="tripdistance[]" value="Far"> +6 hours: Let's cross the ocean!
+
+            
+            <br>
+            <br>
+        </form>
+    </div>
+    <footer>
+        <script>
+          function getCheckedBoxes(chkboxName) {
+            var checkboxes = document.getElementsByName(chkboxName);
+            var checkboxesChecked = [];
+
+            // loop ovewr them all
+            for (var i = 0; i < checkboxes.length; i++) {
+              // And stick the checked ones onto an array...
+              if (checkboxes[i].checked) {
+                checkboxesChecked.push(checkboxes[i].value);
+              }
+            }
+
+            return checkboxesChecked;
+          }
+
+          function saveUserAttributes() {
+            var departures = getCheckedBoxes('departures[]');
+            var trippreference = getCheckedBoxes('trippreference[]');
+            var tripdistance = getCheckedBoxes('tripdistance[]');
+            
+            console.log('The selected departures are ' + departures.toString());
+            console.log('The selected trippreference are ' + trippreference.toString());
+            console.log('The selected tripdistance are ' + tripdistance.toString());
+            
+            appboyBridge.getUser().setCustomUserAttribute('Favourite Departures', departures);
+            appboyBridge.getUser().setCustomUserAttribute('Trip Preference', trippreference);
+            appboyBridge.getUser().setCustomUserAttribute('Trip Distance', tripdistance);
+
+            appboyBridge.closeMessage();
+          }
+        </script>
+         <div class='button-center'>
+            <a href="#" onclick="saveUserAttributes()"><p>Save my preference</p></a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600,700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+h3 {
+  color: #666666;
+}
+
+h6 {
+  margin-bottom: 10px;
+}
+
+/* ------------------ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+  > * {
+    margin: auto;
+    width: calc(100% - 36px);
+    max-width: 600px;
+  }
+}
+
+.header {
+  > * {
+    margin: 0;
+  }
+}
+
+.autocomplete-input {
+  background-color: #f8f8f8;
+  width: calc(100% - 16px);
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0 8px;
+}
+
+.autocomplete-suggestions {
+  background-color: #f8f8f8;
+  border-radius: 0 0 8px 8px;
+  margin-top: -2px;
+  padding-bottom: 8px;
+  > * {
+    list-style: none;
+  }
+}
+
+.chip-area {
+  color: white;
+  display: flex;
+  font-size: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  > * {
+    padding: 8px 16px;
+    border-radius: 40px;
+    margin: 10px;
+    margin-left: 0;
+    white-space: nowrap;
+  }
+}
+
+.submit {
+  background-color: #6a3460;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 70px;
+  margin-top: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+}
