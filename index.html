@@ -1,0 +1,389 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <style data-styled="" data-styled-version="4.3.2">
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans:600,700&display=swap");
+      body {
+        background-color: white;
+      }
+      .eLboNh {
+        color: #222222;
+        font-size: 26px;
+      }
+      .kxSiDS {
+        color: #666666;
+        font-size: 22px;
+      }
+      .fEXOwh {
+        color: #222222;
+        margin: auto 16px 10px;
+        font-size: 16px;
+      }
+      .dLozp {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        color: #666666;
+        margin-bottom: 10px;
+        padding-bottom: 100px;
+        background-color: white;
+      }
+      .dLozp > * {
+        margin: -10px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+      }
+      .iSwVpL {
+        color: white;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+      .gmSvAO {
+        padding: 8px 16px;
+        border-radius: 40px;
+        margin: 10px;
+        margin-left: 0;
+        white-space: nowrap;
+        background-color: rgb(204, 204, 204);
+        position: relative;
+      }
+      .origin-chip::after,
+      .destination-chip::after {
+        padding: 8px 32px 8px 16px;
+        content: "\00D7";
+        margin-right: -30px;
+      }
+      .gQXZFu {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+        width: 0;
+        background-color: none;
+      }
+      .gQXZFu:before {
+        padding: 8px 0;
+        border-radius: 40px;
+        margin: 10px;
+        margin-left: 0;
+        white-space: nowrap;
+      }
+      .ehVOsj {
+        background-color: #6a3460;
+        border: none;
+        color: white;
+        font-size: 16px;
+        height: 70px;
+        margin-top: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        transform: translate(-50%);
+        width: 100%;
+      }
+      .gtnPum {
+        background-color: #f5f5f5;
+        border-radius: 0 0 8px 8px;
+        margin: -8px auto auto;
+        padding: 0;
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 90%;
+        text-align: center;
+        background-color: #f1f1f1;
+        margin: -3px auto auto;
+      }
+      .list > * {
+        margin: 10px;
+      }
+      .gtnPum > * {
+        list-style: none;
+      }
+      .peFcM {
+        background-color: #f1f1f1;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        height: 50px;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        padding-left: 16px;
+        font-size: 16px;
+        width: 90%;
+        margin: auto;
+      }
+      .peFcM::placeholder {
+        font-size: 18px;
+      }
+      .hMMnpQ {
+        margin: 30px auto;
+        position: relative;
+      }
+      .hMMnpQ > * {
+        margin: 0;
+      }
+      .bHSxlw {
+        position: absolute;
+        right: 0;
+        color: black;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        padding: 0 10px;
+        border-radius: 20px;
+        background-color: #f5f5f5;
+        font-size: 24px;
+        top: -15px;
+      }
+      .selected {
+        background-color: #70b62c;
+      }
+      .destination-chip {
+        background-color: rgb(242, 95, 92);
+      }
+      .origin-chip {
+        background-color: rgb(33, 155, 198);
+      }
+      #destinationsChips,
+      #originsChips > * {
+        list-style: none;
+      }
+      #destinationsChips,
+      #originsChips {
+        display: flex;
+        background-color: white;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="sc-bxivhb dLozp">
+        <div class="sc-iwsKbI hMMnpQ">
+          <a href="appboy://close" class="sc-gZMcBi bHSxlw">×</a>
+          <h1 class="sc-bdVaJa eLboNh">Ahoy Capitain!</h1>
+          <h3 class="sc-bwzfXH kxSiDS">Save your preferences here!</h3>
+        </div>
+        <div>
+          <h6 class="sc-htpNat fEXOwh">Places that you dream to visit?</h6>
+          <input
+            id="destinationInput"
+            placeholder="Florianopolis"
+            type="text"
+            class="peFcM"
+          />
+          <ul id="destinationsAutocomplete" class="sc-htoDjs gtnPum list"></ul>
+          <ul id="destinationsChips" class="sc-htoDjs sc-ifAKCX iSwVpL"></ul>
+        </div>
+        <div>
+          <h6 class="sc-htpNat fEXOwh">
+            What is your favorite departure city?
+          </h6>
+          <input
+            id="originInput"
+            placeholder="Berlin"
+            type="text"
+            class="peFcM"
+          />
+          <ul id="originsAutocomplete" class="sc-htoDjs gtnPum list"></ul>
+          <ul id="originsChips" class="sc-htoDjs sc-ifAKCX iSwVpL"></ul>
+        </div>
+        <div>
+          <h6 class="sc-htpNat fEXOwh">How much are you willing to spend?</h6>
+          <input
+            id="budgetInput"
+            type="number"
+            placeholder="Tell us a value up to 5000"
+            class="peFcM"
+          />
+        </div>
+        <div>
+          <h6 class="sc-htpNat fEXOwh">
+            What's your idea for your next trip?
+          </h6>
+          <div class="sc-ifAKCX iSwVpL">
+            <div
+              onclick="togglePreferedTripType('wellness')"
+              class="sc-EHOje gmSvAO wellness"
+            >
+              Wellness
+            </div>
+            <div
+              onclick="togglePreferedTripType('city')"
+              class="sc-EHOje gmSvAO city"
+            >
+              City trip
+            </div>
+            <div
+              class="sc-EHOje gmSvAO sea"
+              onclick="togglePreferedTripType('sea')"
+            >
+              Vacation by the sea
+            </div>
+            <div
+              class="sc-EHOje gmSvAO activity"
+              onclick="togglePreferedTripType('activity')"
+            >
+              Activity vacations
+            </div>
+            <div
+              class="sc-EHOje gmSvAO luxury"
+              onclick="togglePreferedTripType('luxury')"
+            >
+              Luxury vacations
+            </div>
+            <div
+              class="sc-EHOje gmSvAO flights"
+              onclick="togglePreferedTripType('flights')"
+            >
+              Flights only
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onclick="savePreferences()" class="sc-gzVnrw ehVOsj">
+        Save my preferences
+      </button>
+    </div>
+    <script>
+      "use strict";
+      let preferedTripTypes = new Set();
+      let suggestedDestinations = new Set();
+      let preferedDestinations = new Set();
+      let suggestedOrigins = new Set();
+      let preferedOrigins = new Set();
+      let budgetLimit = 0;
+
+      const togglePreferedTripType = tripType => {
+        document.querySelector(`.${tripType}`).classList.toggle("selected");
+        preferedTripTypes.has(tripType)
+          ? preferedTripTypes.delete(tripType)
+          : preferedTripTypes.add(tripType);
+      };
+
+      const request = (url, callback) => {
+        var xmlHttpObject = new XMLHttpRequest();
+        xmlHttpObject.onreadystatechange = () => {
+            callback(xmlHttpObject);
+        };
+        xmlHttpObject.open("GET", url, true);
+        xmlHttpObject.send();
+      }
+
+      destinationInput.oninput = () => {
+        if (destinationInput.value.length < 2) {
+          return (destinationsAutocomplete.innerHTML = "");
+        }
+        request(
+          `https://www.urlaubspiraten.de/location/public?name=
+          ${destinationInput.value}&lang=en&type[]=PPLCH&type[]=PPLC&type[]=PPLA&type[]=PPLA2&type[]=PPLA3&type[]=PPLA4`,
+          (response) => {
+            const results = response.responseText && JSON.parse(response.responseText);
+            suggestedDestinations.clear();
+            if (results) {
+              results.map(({ city }) => suggestedDestinations.add(city));
+              destinationsAutocomplete.innerHTML = "";
+              suggestedDestinations.forEach(result => {
+                const suggestion = `<li onclick="destinationSuggestionClick('${result}')">${result}</li>`;
+                destinationsAutocomplete.innerHTML += suggestion;
+              });
+            }
+        });
+      };
+
+      const destinationSuggestionClick = value => {
+        if (!preferedDestinations.has(value)) {
+          preferedDestinations.add(value);
+          const chip = `<li onclick="deleteDestination(${value})" id="${value}" class="sc-EHOje gmSvAO destination-chip">${value}</li>`;
+          destinationsChips.innerHTML += chip;
+        }
+        destinationsAutocomplete.innerHTML = "";
+        destinationInput.value = "";
+      };
+
+      const deleteDestination = value => {
+        preferedDestinations.delete(value.innerHTML);
+        const destination = document.querySelector(`#${value.innerHTML}`);
+        destination.parentElement.removeChild(destination);
+      };
+
+      originInput.oninput = async () => {
+        if (originInput.value.length < 2) {
+          return (originsAutocomplete.innerHTML = "");
+        }
+        request(
+          `https://www.urlaubspiraten.de/location/public?name=
+          ${destinationInput.value}&lang=en&type[]=PPLCH&type[]=PPLC&type[]=PPLA&type[]=PPLA2&type[]=PPLA3&type[]=PPLA4`,
+          (response) => {
+            const results = response.responseText && JSON.parse(response.responseText);
+            suggestedOrigins.clear();
+            if (results) {
+              results.map(({ city }) => suggestedOrigins.add(city));
+              originsAutocomplete.innerHTML = "";
+              suggestedOrigins.forEach(result => {
+                const suggestion = `<li onclick="originSuggestionClick('${result}')">${result}</li>`;
+                originsAutocomplete.innerHTML += suggestion;
+              });
+            }
+        });
+      };
+
+      const originSuggestionClick = value => {
+        if (!preferedOrigins.has(value)) {
+          preferedOrigins.add(value);
+          const chip = `<li onclick="deleteOrigin(${value})" id="${value}" class="sc-EHOje gmSvAO origin-chip">${value}</li>`;
+          originsChips.innerHTML += chip;
+        }
+        originsAutocomplete.innerHTML = "";
+        originInput.value = "";
+      };
+
+      const deleteOrigin = value => {
+        preferedOrigins.delete(value.innerHTML);
+        const origin = document.querySelector(`#${value.innerHTML}`);
+        origin.parentElement.removeChild(origin);
+      };
+
+      budgetInput.oninput = () => {
+        budgetLimit = budgetInput.value;
+      };
+
+      const savePreferences = () => {
+        appboyBridge
+          .getUser()
+          .setCustomUserAttribute("Destinations", [...preferedDestinations]);
+        appboyBridge
+          .getUser()
+          .setCustomUserAttribute("Origins", [...preferedOrigins]);
+        appboyBridge
+          .getUser()
+          .setCustomUserAttribute("Preferences", [...preferedTripTypes]);
+        appboyBridge
+          .getUser()
+          .setCustomUserAttribute("Budget Limit", budgetLimit);
+
+        console.log(
+          `The selected destinations are ${[...preferedDestinations]}`
+        );
+        console.log(`The selected origins are ${[...preferedOrigins]}`);
+        console.log(`The selected preferences are ${[...preferedTripTypes]}`);
+        console.log(`The limit budget is ${budgetLimit}`);
+        window.location = "appboy://close";
+      };
+    </script>
+  </body>
+</html>

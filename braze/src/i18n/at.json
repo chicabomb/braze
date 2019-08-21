@@ -1,0 +1,15 @@
+{
+  "AHOY": "Ahoy Capitain!",
+  "SAVE_PREFERENCES": "Save your preferences here",
+  "LABEL": {
+    "DESTINATIONS": "Places that you dream to visit?",
+    "DESTINATIONS_PLACEHOLDER": "Places that you dream to visit?",
+    "ORIGINS": "What is your favorite departure city?",
+    "ORIGINS_PLACEHOLDER": "What is your favorite departure city?",
+    "INTERESTS": "What are you searching for your next trip?",
+    "BUDGET": "How much are you willing to spend?",
+    "BUDGET_PLACEHOLDER": "Tell us a value up to 5000"
+  },
+  "SAVE": "Save my preferences",
+  "AUTOCOMPLETE_URL": "urlaubspiraten.at"
+}
